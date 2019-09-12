@@ -40,6 +40,7 @@
                 android:text="Nomor" />
 
             <EditText
+                android:textColor="@android:color/black"
                 android:enabled="false"
                 android:id="@+id/txtNomorDetail"
                 android:layout_width="match_parent"
@@ -60,6 +61,7 @@
                 android:text="Nama" />
 
             <EditText
+                android:textColor="@android:color/black"
                 android:enabled="false"
                 android:id="@+id/txtNamaDetail"
                 android:layout_width="match_parent"
@@ -79,6 +81,7 @@
                 android:text="Tanggal Lahir" />
 
             <EditText
+                android:textColor="@android:color/black"
                 android:enabled="false"
                 android:id="@+id/txtTanggalLahirDetail"
                 android:layout_width="match_parent"
@@ -98,6 +101,7 @@
                 android:text="Jenis Kelamin" />
 
             <EditText
+                android:textColor="@android:color/black"
                 android:enabled="false"
                 android:id="@+id/txtJenkelDetail"
                 android:layout_width="match_parent"
@@ -117,6 +121,7 @@
                 android:text="Alamat" />
 
             <EditText
+                android:textColor="@android:color/black"
                 android:enabled="false"
                 android:id="@+id/txtAlamatDetail"
                 android:layout_width="match_parent"

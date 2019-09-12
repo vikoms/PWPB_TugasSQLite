@@ -33,8 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createUserTable = "CREATE TABLE "+TABLE_NAME+"("+KEY_NO+"INTEGER PRIMARY KEY,"+KEY_NAME+"TEXT, "+KEY_TTL+"DATE,"+KEY_GENDER+"" +
-                "TEXT,"+KEY_ADRESS+"TEXT)";
+        String createUserTable = "CREATE TABLE " + TABLE_NAME + "(" + KEY_NO + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_NAME + " TEXT," +
+                "" + KEY_TTL + " TEXT, " + KEY_GENDER + " TEXT, " + KEY_ADRESS + " TEXT)";
         sqLiteDatabase.execSQL(createUserTable);
     }
 
@@ -45,10 +45,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void insert(Siswa siswa){
+    public void insert(Siswa siswa) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_NO, siswa.getNomor());
         values.put(KEY_NAME, siswa.getNama());
         values.put(KEY_TTL, siswa.getTanggal_lahir());
         values.put(KEY_GENDER, siswa.getJenis_kelamin());
@@ -56,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
     }
 
-    public List<Siswa> selectUserData(){
+    public List<Siswa> selectUserData() {
         ArrayList<Siswa> userList = new ArrayList<Siswa>();
         SQLiteDatabase db = getReadableDatabase();
         String[] columns = {KEY_NO, KEY_NAME, KEY_TTL, KEY_GENDER, KEY_ADRESS};
@@ -81,13 +80,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return userList;
     }
 
-    public void delete(String nomor) {
+    public void selectSpecificData(int nomor) {
+        SQLiteDatabase db = getReadableDatabase();
+    }
+
+    public void delete(int nomor) {
         SQLiteDatabase db = getWritableDatabase();
         String whereClause = KEY_NO + "='" + nomor + "'";
         db.delete(TABLE_NAME, whereClause, null);
     }
 
-    public void show(String nomor){
+    public void show(String nomor) {
         SQLiteDatabase db = getWritableDatabase();
 
     }
@@ -99,7 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_NAME, siswa.getNama());
         values.put(KEY_TTL, siswa.getTanggal_lahir());
         values.put(KEY_GENDER, siswa.getJenis_kelamin());
-        values.put(KEY_ADRESS, siswa.getTanggal_lahir());
+        values.put(KEY_ADRESS, siswa.getAlamat());
         String where = KEY_NO + "='" + siswa.getNomor() + "'";
         db.update(TABLE_NAME, values, where, null);
     }

@@ -26,6 +26,8 @@
                 android:text="Nomor" />
 
             <EditText
+                android:enabled="false"
+                android:inputType="number"
                 android:id="@+id/editTextNomor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
