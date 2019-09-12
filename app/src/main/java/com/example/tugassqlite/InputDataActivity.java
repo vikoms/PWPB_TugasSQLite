@@ -53,9 +53,11 @@ public class InputDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (nomor == 0) {
+                    Toast.makeText(InputDataActivity.this, "Data Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
+
                     inputData();
                 } else if(nomor != 0) {
-                    Toast.makeText(InputDataActivity.this, "Ini Update", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InputDataActivity.this, "Data Berhasil Diupdate", Toast.LENGTH_SHORT).show();
                     updateData();
                 }
             }
@@ -77,7 +79,6 @@ public class InputDataActivity extends AppCompatActivity {
         siswa.setJenis_kelamin(gender);
         siswa.setAlamat(alamat);
         db.insert(siswa);
-        Toast.makeText(InputDataActivity.this, alamat, Toast.LENGTH_SHORT).show();
 
         edtNama.setText("");
         edtTTL.setText("");

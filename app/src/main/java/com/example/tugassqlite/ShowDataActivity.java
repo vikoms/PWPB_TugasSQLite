@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ public class ShowDataActivity extends AppCompatActivity implements SiswaAdapter.
 
     RecyclerView recyclerview;
     RecyclerView.LayoutManager layoutManager;
-
+    TextView input;
     List<Siswa> siswaList;
 
     @Override
@@ -31,7 +32,22 @@ public class ShowDataActivity extends AppCompatActivity implements SiswaAdapter.
         layoutManager = new LinearLayoutManager(ShowDataActivity.this);
         recyclerview.setLayoutManager(layoutManager);
 
+        input = findViewById(R.id.textView2);
+        input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ShowDataActivity.this, InputDataActivity.class));
+            }
+        });
+
         setupRecyclerView();
+
+        findViewById(R.id.btnRefresh).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setupRecyclerView();
+            }
+        });
     }
 
 
